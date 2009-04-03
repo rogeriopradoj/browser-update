@@ -6,29 +6,29 @@ include("header.php");
 
 
 	<div class="right">
-			<h2><?php echo t('Free webbrowsers'); ?></h2>
-			<?php tt('update-browsers.php'); ?>
+			<h2><?php echo T_('Free webbrowsers'); ?></h2>
+			<?php tT_('update-browsers.php'); ?>
 	</div>
 	<div class="left">
 
 		<div class="message">
-			<?php tt('update-message.php'); ?>
+			<?php tT_('update-message.php'); ?>
 		</div>
 
 		<div>
-			<?php tt('update-advantages.php'); ?>
+			<?php tT_('update-advantages.php'); ?>
 		</div>
 		
-		<?php tt('update-action.php'); ?>
+		<?php tT_('update-action.php'); ?>
 		
 		<div>
-			<h2><?php echo t('Why this website?'); ?></h2>
-			<?php tt('update-why.php'); ?>
+			<h2><?php echo T_('Why this website?'); ?></h2>
+			<?php tT_('update-why.php'); ?>
 		</div>
 
 
-		<h2><?php echo t('"I\'m not able to update my Browser"'); ?></h2>
-		<?php tt('update-employee.php'); ?>
+		<h2><?php echo T_('"I\'m not able to update my Browser"'); ?></h2>
+		<?php tT_('update-employee.php'); ?>
 	</div>
 
 
@@ -48,12 +48,12 @@ function countBrowser(to) {
 	function getBrowser() {
 		var n,v,t,ua = navigator.userAgent;
 		var names={i:'Internet Explorer',f:'Firefox',o:'Opera',s:'Apple Safari',n:'Netscape Navigator'};
-		if (/MSIE (\d+\.\d+);/.test(ua))					n="i";
-		else if (/Firefox.(\d+\.\d+)/.test(ua))				n="f";
-		else if (/Version.(\d+.\d+).{0,10}Safari/.test(ua))	n="s";
-		else if (/Safari.(\d+)/.test(ua))					n="so";
-		else if (/Opera.(\d+\.\d+)/.test(ua))				n="o";
-		else if (/Netscape.(\d+)/.test(ua))					n="n";
+		if (/MSIE (\d+\.\d+);/.tesT_(ua))					n="i";
+		else if (/Firefox.(\d+\.\d+)/.tesT_(ua))				n="f";
+		else if (/Version.(\d+.\d+).{0,10}Safari/.tesT_(ua))	n="s";
+		else if (/Safari.(\d+)/.tesT_(ua))					n="so";
+		else if (/Opera.(\d+\.\d+)/.tesT_(ua))				n="o";
+		else if (/Netscape.(\d+)/.tesT_(ua))					n="n";
 		else return {};
 
 		v=new Number(RegExp.$1);

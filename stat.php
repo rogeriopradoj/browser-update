@@ -6,20 +6,20 @@ include("header.php");
 ?>
 
 <div class="left">
-<h2 class="top"><?php echo t('Statistics'); ?></h2>
+<h2 class="top"><?php echo T_('Statistics'); ?></h2>
 
 <p>
 	<?php
 	#$q=sprintf("SELECT 1 FROM updates GROUP BY referer");
-    $q=sprintf("SELECT COUNT(DISTINCT referer) FROM views");
+    $q=sprintf("SELECT COUNT_(DISTINCT referer) FROM views");
 	$r = mysql_query($q)
     	or die (mysql_error(). $q);
-	list($domainnum) = mysql_fetch_row($r);
-	echo t('<strong class="number">%d</strong> sites are using the Browser-Update.org script.', $domainnum);
+	lisT_($domainnum) = mysql_fetch_row($r);
+	echo T_('<strong class="number">%d</strong> sites are using the Browser-Update.org script.', $domainnum);
 	?>
 </p>
 
-<h3><?php echo t('Browser updates'); ?></h3>
+<h3><?php echo T_('Browser updates'); ?></h3>
 <?php
 
 
@@ -27,16 +27,16 @@ include("header.php");
 
 function get_num($fromn=false, $ton=false) {
 	if (!$fromn AND !$ton)
-		$q=sprintf("SELECT COUNT(*) FROM updates");
+		$q=sprintf("SELECT COUNT_(*) FROM updates");
 	elseif (!$fromn)
-		$q=sprintf("SELECT COUNT(*) FROM updates WHERE ton='$ton'");
+		$q=sprintf("SELECT COUNT_(*) FROM updates WHERE ton='$ton'");
 	elseif (!$ton)
-		$q=sprintf("SELECT COUNT(*) FROM updates WHERE fromn='$fromn'");
+		$q=sprintf("SELECT COUNT_(*) FROM updates WHERE fromn='$fromn'");
 	else
-		$q=sprintf("SELECT COUNT(*) FROM updates WHERE fromn='$fromn' AND ton='$ton'");
+		$q=sprintf("SELECT COUNT_(*) FROM updates WHERE fromn='$fromn' AND ton='$ton'");
 	$r = mysql_query($q)
 		or die (mysql_error(). $q);
-	list($num) = mysql_fetch_row($r);
+	lisT_($num) = mysql_fetch_row($r);
 	return $num;
 }
 
@@ -56,7 +56,7 @@ $names = array(
 ?>
 <p>
 	<?php
-	echo t('<strong class="number">%d</strong> visitors have already upgraded their browser.', get_num());
+	echo T_('<strong class="number">%d</strong> visitors have already upgraded their browser.', get_num());
 	?>
 </p>
 <?php
@@ -88,10 +88,10 @@ $names = array(
 */
 ?>
 <table>
-    <thead><tr><td><?php echo t('From'); ?></td><td><?php echo t('To'); ?></td><td><?php echo t('Amount'); ?></td></tr></thead>
+    <thead><tr><td><?php echo T_('From'); ?></td><td><?php echo T_('To'); ?></td><td><?php echo T_('Amount'); ?></td></tr></thead>
     <tbody>
     <?php
-    $q=mysql_query('SELECT fromn,ton,COUNT(*) as num FROM `updates` GROUP BY fromn, ton ORDER BY num DESC');
+    $q=mysql_query('SELECT fromn,ton,COUNT_(*) as num FROM `updates` GROUP BY fromn, ton ORDER BY num DESC');
      while ($a = mysql_fetch_assoc($q)) {
          echo '<tr><td>'.$names[$a['fromn']].'</td><td>'.$names[$a['ton']].'</td><td>'.$a['num'].'</td></tr>';
      }
@@ -115,16 +115,16 @@ if (request_lang() == 'de')
 ?>
 
 
-<h3><?php echo t('Recent browser updates'); ?></h3>
+<h3><?php echo T_('Recent browser updates'); ?></h3>
 
 <table>
 <thead>
 <tr>
-<td><?php echo t('Site'); ?></td>
-<td><?php echo t('Old browser'); ?></td>
-<td><?php echo t('New browser'); ?></td>
-<td><?php echo t('Language'); ?></td>
-<td><?php echo t('Date'); ?></td>
+<td><?php echo T_('Site'); ?></td>
+<td><?php echo T_('Old browser'); ?></td>
+<td><?php echo T_('New browser'); ?></td>
+<td><?php echo T_('Language'); ?></td>
+<td><?php echo T_('Date'); ?></td>
 </tr>
 </thead>
 
@@ -138,7 +138,7 @@ $r = mysql_query($q)
 
 while ($a = mysql_fetch_assoc($r)) {
 	echo '<tr><td>'.$a['referer'].'</td><td>'.$names[$a['fromn']].' '.$a['fromv'].'</td><td>'.$names[$a['ton']].'</td><td>'.$a['lang'].'</td><td>'.date("d.m.Y, H:i",$a['time']).'</td></tr>';
-    //list($referer, $fromn, $fromv, $ton, $lang, $ip, $time) = mysql_fetch_row($r);
+    //lisT_($referer, $fromn, $fromv, $ton, $lang, $ip, $time) = mysql_fetch_row($r);
 }
 ?>
 

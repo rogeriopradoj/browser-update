@@ -7,7 +7,7 @@ include("header.php");
 
 
 <div class="left">
-<h2 class="top"><?php echo t('Contact'); ?></h2>
+<h2 class="top"><?php echo T_('Contact'); ?></h2>
 <?php
 if (request_lang() != 'de')
 {
