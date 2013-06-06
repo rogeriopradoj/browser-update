@@ -16,6 +16,10 @@
             "name": "rogeriopradoj-browser-update",
             "scripts": [
                 "update.js"
+            ],
+            "files": [
+                "update.js",
+                "img/*"
             ]
         }
     }

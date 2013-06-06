@@ -85,7 +85,7 @@ if (this.op.reminder>0) {
 }
 var ll=this.op.l.substr(0,2);
 var languages = "de,en";
-if (languages.indexOf(ll)!==false)
+if ( op.url === false && languages.indexOf(ll) !== -1 )
     this.op.url="http://browser-update.org/"+ll+"/update.html#"+jsv;
 var tar="";
 if (this.op.newwindow)
