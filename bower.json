@@ -1,0 +1,14 @@
+{
+    "name": "rogeriopradoj-browser-update",
+    "description": "Mirror of https://code.google.com/p/browser-update/, http://browserupdate.org/.",
+    "version": "0.0.1",
+    "keywords": [
+        "browser",
+        "update",
+        "browser update"
+    ],
+    "license": "MIT",
+    "main": [
+        "update.js"
+    ]
+}

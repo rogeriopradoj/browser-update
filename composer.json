@@ -1,0 +1,22 @@
+{
+    "name": "rogeriopradoj/browser-update",
+    "description": "Mirror of https://code.google.com/p/browser-update/, http://browserupdate.org/.",
+    "keywords": [
+        "browser",
+        "update",
+        "browser update"
+    ],
+    "license": "MIT",
+    "type": "component",
+    "require": {
+        "robloach/component-installer": "*"
+    },
+    "extra": {
+        "component": {
+            "name": "rogeriopradoj-browser-update",
+            "scripts": [
+                "update.js"
+            ]
+        }
+    }
+}
